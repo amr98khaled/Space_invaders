@@ -1,0 +1,11 @@
+#include "SYSTICK.h"
+
+ void Systick_init(void)
+ {
+	 NVIC_ST_CTRL_R=0;
+	 NVIC_ST_RELOAD_R= 2666667; //30HZ
+	 NVIC_ST_CURRENT_R=0;
+	 NVIC_PRI3_R=(NVIC_PRI3_R&0x00FFFFFF)|(0x20000000); //PRIORITY = 1
+   NVIC_ST_CTRL_R=0x07;
+ }
+ 
